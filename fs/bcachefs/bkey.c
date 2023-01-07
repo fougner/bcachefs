@@ -185,6 +185,7 @@ static u64 get_inc_field(struct unpack_state *state, unsigned field)
 }
 
 __always_inline
+__no_sanitize_undefined
 static bool set_inc_field(struct pack_state *state, unsigned field, u64 v)
 {
 	unsigned bits = state->format->bits_per_field[field];
@@ -366,6 +367,7 @@ bool bch2_bkey_pack(struct bkey_packed *out, const struct bkey_i *in,
 }
 
 __always_inline
+__no_sanitize_undefined
 static bool set_inc_field_lossy(struct pack_state *state, unsigned field, u64 v)
 {
 	unsigned bits = state->format->bits_per_field[field];
